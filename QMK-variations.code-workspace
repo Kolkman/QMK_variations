@@ -1,8 +1,1 @@
-{
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {}
-}
+{"folders":[{"path":"."},{"path":"../qmk_firmware"}],"settings":{}}
