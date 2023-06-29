@@ -16,7 +16,6 @@
 
 #pragma once
 
-
 // power lights on caps lock
 #define LED_CAPS_LOCK_PIN 24
 #define LED_PIN_ON_STATE 0
@@ -25,12 +24,8 @@
 // but can't yet be given a value
 #define SPLIT_HAND_PIN B5
 
-
-
-
-//#define LED_CAPS_LOCK_PIN 24
-//#define LED_PIN_ON_STATE 0
-
+// #define LED_CAPS_LOCK_PIN 24
+// #define LED_PIN_ON_STATE 0
 
 // Not yet available in `info.json`
 #ifdef OLED_ENABLE
@@ -54,7 +49,9 @@
 #    define RGBLIGHT_SAT_STEP 8
 #    define RGBLIGHT_VAL_STEP 8
 #    ifndef RGBLIGHT_LIMIT_VAL
-#    	define RGBLIGHT_LIMIT_VAL 150
+#        define RGBLIGHT_LIMIT_VAL 150
 #    endif
+#    define RGBLIGHT_LAYERS
+#    define RGBLIGHT_MAX_LAYERS 4
+#    define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
 #endif
-

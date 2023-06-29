@@ -13,62 +13,50 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+#include "keycodes.h"
+#include "rgblight.h"
+#include "kolkman.h"
 #include QMK_KEYBOARD_H
 
-enum layers {
-    _QWERTY = 0,
-    _DVORAK,
-    _COLEMAK_DH,
-    _NAV,
-    _SYM,
-    _FUNCTION,
-    _ADJUST,
-};
 
 enum {
     TD_SCLN_ENT,
     TD_SPC_ENT,
 };
 
-
 // Aliases for readability
-#define QWERTY   DF(_QWERTY)
-#define COLEMAK  DF(_COLEMAK_DH)
-#define DVORAK   DF(_DVORAK)
+#define QWERTY DF(_QWERTY)
+#define COLEMAK DF(_COLEMAK_DH)
+#define DVORAK DF(_DVORAK)
 
-#define SYM      MO(_SYM)
-#define NAV      MO(_NAV)
-#define FKEYS    MO(_FUNCTION)
-#define ADJUST   MO(_ADJUST)
+#define SYM MO(_SYM)
+#define NAV MO(_NAV)
+#define FKEYS MO(_FUNCTION)
+#define ADJUST MO(_ADJUST)
 
-#define CTL_ESC  MT(MOD_LCTL, KC_ESC)
+#define CTL_ESC MT(MOD_LCTL, KC_ESC)
 #define CTL_QUOT MT(MOD_RCTL, KC_QUOTE)
 #define CTL_MINS MT(MOD_RCTL, KC_MINUS)
-#define ALT_ENT  MT(MOD_LALT, KC_ENT)
-
+#define GUI_ENT MT(MOD_LGUI, KC_ENT)
 
 // Note: LAlt/Enter (ALT_ENT) is not the same thing as the keyboard shortcut Alt+Enter.
 // The notation `mod/tap` denotes a key that activates the modifier `mod` when held down, and
 // produces the key `tap` when tapped (i.e. pressed and released).
 
-
 // See https://precondition.github.io/home-row-mods
 // Using a CAGS layout
 // Control, ALT (Option), GUI (Command), Shift
 // Results in
-// LCTL_T(KC_A) ,  LALT_T(KC_S)  ,  LGUI_T(KC_D)  ,  LSFT_T(KC_F) 
-// RSFT_T(KC_J) ,  RGUI_T(KC_K),   LALT_T(KKC_L) , RCTL_T(K_SCLN) 
-
-
-
-
+// LCTL_T(KC_A) ,  LALT_T(KC_S)  ,  LGUI_T(KC_D)  ,  LSFT_T(KC_F)
+// RSFT_T(KC_J) ,  RGUI_T(KC_K),   LALT_T(KKC_L) , RCTL_T(K_SCLN)
 
 // Tap Dance definitions
 tap_dance_action_t tap_dance_actions[] = {
     // Tap once for Escape, twice for Caps Lock
     [TD_SCLN_ENT] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_ENT),
-    [TD_SPC_ENT] = ACTION_TAP_DANCE_DOUBLE(KC_SPC, KC_ENT),
+    [TD_SPC_ENT]  = ACTION_TAP_DANCE_DOUBLE(KC_SPC, KC_ENT),
 };
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
@@ -89,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_TAB  , KC_Q ,  KC_W   ,  KC_E  ,   KC_R ,   KC_T ,                                        KC_Y,   KC_U ,  KC_I ,   KC_O ,  KC_P , KC_BSPC,
      CTL_ESC , LCTL_T(KC_A) ,  LALT_T(KC_S)  ,  LGUI_T(KC_D)  ,  LSFT_T(KC_F) ,   KC_G ,           KC_H,   RSFT_T(KC_J) ,  RGUI_T(KC_K),   LALT_T(KC_L) , RCTL_T(KC_SCLN) ,CTL_QUOT,
      KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , KC_LBRC,KC_CAPS,     FKEYS  , KC_RBRC, KC_N,   KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_RSFT,
-                            ADJUST , KC_LGUI, ALT_ENT, TD(TD_SPC_ENT) , NAV   ,     SYM    , TD(TD_SPC_ENT)  ,KC_RALT, KC_RGUI, KC_APP
+                            ADJUST , KC_LALT, GUI_ENT, TD(TD_SPC_ENT) , NAV   ,     SYM    , TD(TD_SPC_ENT)  ,KC_RGUI, KC_RALT  , KC_APP
     ),
 
 /*
@@ -110,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_TAB  ,KC_QUOTE,KC_COMM,  KC_DOT,   KC_P ,   KC_Y ,                                        KC_F,   KC_G ,  KC_C ,   KC_R ,  KC_L , KC_BSPC,
      CTL_ESC , KC_A ,  KC_O   ,  KC_E  ,   KC_U ,   KC_I ,                                        KC_D,   KC_H ,  KC_T ,   KC_N ,  KC_S , CTL_MINS,
      KC_LSFT ,KC_SCLN, KC_Q   ,  KC_J  ,   KC_K ,   KC_X , KC_LBRC,KC_CAPS,     FKEYS  , KC_RBRC, KC_B,   KC_M ,  KC_W ,   KC_V ,  KC_Z , KC_RSFT,
-                                 ADJUST, KC_LGUI, ALT_ENT, KC_SPC , NAV   ,     SYM    , KC_SPC ,KC_RALT, KC_RGUI, KC_APP
+                                 ADJUST, KC_LALT, GUI_ENT, KC_SPC , NAV   ,     SYM    , KC_SPC ,KC_RALT, KC_RGUI, KC_APP
     ),
 
 /*
@@ -131,7 +119,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_TAB  , KC_Q ,  KC_W   ,  KC_F  ,   KC_P ,   KC_B ,                                        KC_J,   KC_L ,  KC_U ,   KC_Y ,KC_SCLN, KC_BSPC,
      CTL_ESC , KC_A ,  KC_R   ,  KC_S  ,   KC_T ,   KC_G ,                                        KC_M,   KC_N ,  KC_E ,   KC_I ,  KC_O , CTL_QUOT,
      KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_D ,   KC_V , KC_LBRC,KC_CAPS,     FKEYS  , KC_RBRC, KC_K,   KC_H ,KC_COMM, KC_DOT ,KC_SLSH, KC_RSFT,
-                                 ADJUST, KC_LGUI, ALT_ENT, KC_SPC , NAV   ,     SYM    , KC_SPC ,KC_RALT, KC_RGUI, KC_APP
+                                 ADJUST, KC_LALT, GUI_ENT, KC_SPC , NAV   ,     SYM    , KC_SPC ,KC_RALT, KC_RGUI, KC_APP
     ),
 
 /*
@@ -337,4 +325,110 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 }
 #endif
 DELETE THIS LINE TO UNCOMMENT (2/2) */
+
+
+/*
+enum layers {
+    _QWERTY = 0,
+    _DVORAK,
+    _COLEMAK_DH,
+    _NAV,
+    _SYM,
+    _FUNCTION,
+    _ADJUST,
+};*/
+ #ifdef RGBLIGHT_LAYERS
+const rgblight_segment_t PROGMEM my_qwerty_layer[] = RGBLIGHT_LAYER_SEGMENTS( {0, 20, HSV_RED} );
+const rgblight_segment_t PROGMEM my_dvorak_layer[] = RGBLIGHT_LAYER_SEGMENTS( {0, 20, HSV_RED} );
+const rgblight_segment_t PROGMEM my_colemak_layer[] = RGBLIGHT_LAYER_SEGMENTS( {0, 20, HSV_BLUE} );
+const rgblight_segment_t PROGMEM my_nav_layer[] = RGBLIGHT_LAYER_SEGMENTS( {0, 20, HSV_GOLDENROD} );
+const rgblight_segment_t PROGMEM my_symbols_layer[] = RGBLIGHT_LAYER_SEGMENTS( {0, 20, HSV_GREEN} );
+const rgblight_segment_t PROGMEM my_fn_layer[] = RGBLIGHT_LAYER_SEGMENTS( {0, 20, HSV_PINK} );
+const rgblight_segment_t PROGMEM my_adjust_layer[] = RGBLIGHT_LAYER_SEGMENTS( {0, 20, HSV_MAGENTA} );
+
+const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 3, HSV_RED},
+    {7, 1, HSV_RED},
+    {10, 3, HSV_RED},
+    {17, 1, HSV_RED}
+);
+
+const rgblight_segment_t PROGMEM my_shift_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {3, 1, HSV_RED},
+    {13, 1, HSV_RED}
+);
+
+const rgblight_segment_t PROGMEM my_ctrl_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {4, 1, HSV_ORANGE},
+    {14, 1, HSV_ORANGE}
+);
+
+const rgblight_segment_t PROGMEM my_alt_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {5, 1, HSV_GOLD},
+    {15, 1, HSV_GOLD}
+);
+
+const rgblight_segment_t PROGMEM my_gui_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {9, 1, HSV_SPRINGGREEN},
+    {19, 1, HSV_SPRINGGREEN}
+);
+
+const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+
+    my_qwerty_layer,
+    my_dvorak_layer,
+    my_colemak_layer,
+    my_nav_layer,
+
+    my_symbols_layer,
+    my_fn_layer,
+    my_adjust_layer,
+    my_capslock_layer,
+    my_shift_layer,
+    my_ctrl_layer,
+    my_alt_layer,
+    my_gui_layer
+);
+
+void matrix_scan_keymap(void) {
+    uint8_t mods = mod_config(get_mods());
+    rgblight_set_layer_state(8, mods & MOD_MASK_SHIFT);
+    rgblight_set_layer_state(9, mods & MOD_MASK_CTRL);
+    rgblight_set_layer_state(10, mods & MOD_MASK_ALT);
+    rgblight_set_layer_state(11, mods & MOD_MASK_GUI);
+}
+#endif
+
+void keyboard_post_init_user(void) {
+    rgblight_sethsv_noeeprom(HSV_BLUE);
+    keyboard_post_init_rgb();
+#ifdef RGBLIGHT_LAYERS
+    rgblight_layers = my_rgb_layers;
+#else
+    rgblight_sethsv_noeeprom(HSV_BLUE);
+#endif
+    /*debug_enable=true;*/
+    /*debug_matrix=true;*/
+}
+
+//todo https://github.com/qmk/qmk_firmware/blob/debdc6379c7a72815df1f53e3406479381d243af/keyboards/crkbd/keymaps/soundmonster/keymap.c RGBRST
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+#ifdef RGBLIGHT_LAYERS
+    for (int i = _QWERTY; i < __LAST; i++) {
+        rgblight_set_layer_state(i, layer_state_cmp(state, i));
+    }
+#  ifdef RAW_ENABLE
+    send_layer_via_hid(state);
+#  endif
+#endif
+    return state;
+}
+
+#ifdef RGBLIGHT_LAYERS
+bool led_update_user(led_t led_state) {
+    rgblight_set_layer_state(7, led_state.caps_lock);
+    return true;
+}
+#endif
 
