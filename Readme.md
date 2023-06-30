@@ -7,8 +7,11 @@ And the keymaps linked to the appropriate and similar locations in the keyboards
 
 For instance
 ```
-cd qmk_firmware/keyboards/splitkb/kyria/keymap
+cd ~/qmk_firmware/keyboards/splitkb/kyria/keymap
 ln -s ./../../../../../QMK-variations/keyboards/splitkb/kyria/keymaps/kolkman ./
+
+cd ~/qmkfirmwqre/users
+ln -s ../../QMK-variations/users/kolkman ./
 ```
 
  ### Some useful resources.
