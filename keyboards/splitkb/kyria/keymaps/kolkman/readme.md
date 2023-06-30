@@ -8,7 +8,7 @@
 *   Power led [on for Caps lock](https://docs.splitkb.com/hc/en-us/articles/5799711553820-Power-LED).
 *   RGB lightlayers, see the [feature_rgblight.md](https://github.com/qmk/qmk_firmware/blob/master/docs/feature_rgblight.md) with command option shift and control providing light effects.
 *   Configurable removal of DVORAK and COLEMAK layers.
-*   A custom XOLX logo (still distorted)
+*   A custom XOLX logo 
 
 ### Default layer layout (Not commpetely up to date)      
 ![Alt text](./kyria.png)
