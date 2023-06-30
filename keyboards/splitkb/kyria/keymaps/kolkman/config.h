@@ -32,9 +32,12 @@
 #    define OLED_DISPLAY_128X64
 #    define SPLIT_OLED_ENABLE
 #endif
+////#    define RBGLIGHT_LED_MAP         { 9, 8, 6, 7, 5, 3, 2, 4, 1, 0, 10, 12, 13, 11, 14, 16, 17, 15, 18, 19 }
 
 // Not yet available in `info.json`
 #ifdef RGBLIGHT_ENABLE
+#    define RBGLIGHT_LED_MAP \
+        { 9, 8, 6, 7, 5, 3, 2, 4, 1, 0, 10, 12, 13, 11, 14, 16, 17, 15, 18, 19 }
 #    define RGBLIGHT_EFFECT_BREATHING
 #    define RGBLIGHT_EFFECT_RAINBOW_MOOD
 #    define RGBLIGHT_EFFECT_RAINBOW_SWIRL
@@ -52,6 +55,6 @@
 #        define RGBLIGHT_LIMIT_VAL 150
 #    endif
 #    define RGBLIGHT_LAYERS
-#    define RGBLIGHT_MAX_LAYERS 4
+#    define RGBLIGHT_MAX_LAYERS 16
 #    define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
 #endif

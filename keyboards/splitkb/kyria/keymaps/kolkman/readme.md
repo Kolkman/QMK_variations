@@ -6,9 +6,11 @@
 *   Control Option Command Shift - [Modrow](https://precondition.github.io/home-row-mods) (Only on the QWERTY keyboard)
 *   Option Command order on the thumb row swapped.
 *   Power led [on for Caps lock](https://docs.splitkb.com/hc/en-us/articles/5799711553820-Power-LED).
-*   RGB lightlayers, see the [feature_rgblight.md](https://github.com/qmk/qmk_firmware/blob/master/docs/feature_rgblight.md)  (DOES NOT WORK YET)
+*   RGB lightlayers, see the [feature_rgblight.md](https://github.com/qmk/qmk_firmware/blob/master/docs/feature_rgblight.md) with command option shift and control providing light effects.
+*   Configurable removal of DVORAK and COLEMAK layers.
+*   A custom XOLX logo (still distorted)
 
-### Default layer layout        
+### Default layer layout (Not commpetely up to date)      
 ![Alt text](./kyria.png)
 
 Keyboard layout edited with: [keyboard layout editor](http://www.keyboard-layout-editor.com/#/gists/f7e4c83d47951cabcbdc227a47d7e257)
