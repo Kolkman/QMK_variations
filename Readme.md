@@ -17,3 +17,4 @@ ln -s ../../QMK-variations/users/kolkman ./
  ### Some useful resources.
  - [keymapdb](https.keymapdb.com), in particular the [kyria keymap](https://keymapdb.com/keymaps/default-kyria/).
  - https://precondition.github.io/
+ - https://github.com/andrewjrae/kyria-keymap contains a few fetures that I am considdering
