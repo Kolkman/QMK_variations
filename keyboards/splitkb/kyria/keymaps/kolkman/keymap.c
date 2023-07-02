@@ -427,7 +427,7 @@ const rgblight_segment_t PROGMEM my_nav_layer[] = RGBLIGHT_LAYER_SEGMENTS({12, 3
 const rgblight_segment_t PROGMEM my_symbols_layer[] = RGBLIGHT_LAYER_SEGMENTS({12, 30, HSV_GREEN}, {43, 30, HSV_GREEN});
 
 const rgblight_segment_t PROGMEM my_fn_layer[]     = RGBLIGHT_LAYER_SEGMENTS({12, 30, HSV_PINK}, {43, 30, HSV_PINK});
-const rgblight_segment_t PROGMEM my_adjust_layer[] = RGBLIGHT_LAYER_SEGMENTS({6, 52, HSV_MAGENTA}, {37, 5, HSV_MAGENTA});
+const rgblight_segment_t PROGMEM my_adjust_layer[] = RGBLIGHT_LAYER_SEGMENTS({6, 6, HSV_MAGENTA}, {37, 6, HSV_MAGENTA});
 
 const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 3, HSV_RED}, {7, 1, HSV_RED}, {10, 3, HSV_RED}, {17, 1, HSV_RED});
 
