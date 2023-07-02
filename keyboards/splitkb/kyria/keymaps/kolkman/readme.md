@@ -2,7 +2,8 @@
  
  This keymap is based on the default Kyria Keymap with a few modifications.
  
-*   Tapdance on the space keys, to mimic as enter keys.
+*   Tapdance on the space keys, to mimic as enter keys
+*   Simultaneous space press activates CAPS_WORDS.
 *   Control Option Command Shift - [Modrow](https://precondition.github.io/home-row-mods) (Only on the QWERTY keyboard)
 *   Removed  CTRL on hold from the quote key.
 *   Option Command order on the thumb row swapped.

@@ -8,3 +8,4 @@ ENCODER_ENABLE = yes       # Enables the use of one or more encoder
 RGB_MATRIX_ENABLE = no      # Disable keyboard RGB matrix, as it is enabled by default on rev3
 RGBLIGHT_ENABLE = yes
 RGBLIGHT_LIMIT_VAL = yes
+CAPS_WORD_ENABLE = yes

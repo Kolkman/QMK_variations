@@ -24,6 +24,8 @@
 // but can't yet be given a value
 #define SPLIT_HAND_PIN B5
 
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+
 // #define LED_CAPS_LOCK_PIN 24
 // #define LED_PIN_ON_STATE 0
 
