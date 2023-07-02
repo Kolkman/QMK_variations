@@ -1,4 +1,4 @@
- # The kolkman keymap
+ # Kolkman's XOLX keymap
  
  This keymap is based on the default Kyria Keymap with a few modifications.
  
