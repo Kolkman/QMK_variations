@@ -20,12 +20,15 @@
 #define LED_CAPS_LOCK_PIN 24
 #define LED_PIN_ON_STATE 0
 
+
+#define ENCODER_MAP_ENABLE
 // `SPLIT_HAND_PIN` can currently be defined in `info.json`,
 // but can't yet be given a value
 #define SPLIT_HAND_PIN B5
 
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
-
+#define TABBING_TIMER 150
+#define ENCODER_RESOLUTION 2
 // #define LED_CAPS_LOCK_PIN 24
 // #define LED_PIN_ON_STATE 0
 

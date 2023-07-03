@@ -15,6 +15,12 @@ ln -s ./../../../../../QMK-variations/keyboards/splitkb/kyria/keymaps/kolkman ./
 cd ~/qmkfirmwqre/users
 ln -s ../../QMK-variations/users/kolkman ./
 ```
+ Also, if you work with VStudio, you may want to link your compile_commands.json file from the qmk_firmware directory to your QMK-variations directory.
+
+ ```
+ cd ~/QMK-variations 
+ ln -s ../qmk_firmware/compile_commands.json ./
+ ```
 
  ### Some useful resources.
  - [keymapdb](https.keymapdb.com), in particular the [kyria keymap](https://keymapdb.com/keymaps/default-kyria/).
