@@ -19,9 +19,9 @@
 // power lights on caps lock
 #define LED_CAPS_LOCK_PIN 24
 #define LED_PIN_ON_STATE 0
+#define RGBLIGHT_REDEFINE_LIMIT_VAL 100
 
-
-#define ENCODER_MAP_ENABLE
+// #define ENCODER_MAP_ENABLE
 // `SPLIT_HAND_PIN` can currently be defined in `info.json`,
 // but can't yet be given a value
 #define SPLIT_HAND_PIN B5
@@ -34,32 +34,35 @@
 
 // Not yet available in `info.json`
 #ifdef OLED_ENABLE
-#    define OLED_DISPLAY_128X64
-#    define SPLIT_OLED_ENABLE
+#define OLED_DISPLAY_128X64
+#define SPLIT_OLED_ENABLE
 #endif
-////#    define RBGLIGHT_LED_MAP         { 9, 8, 6, 7, 5, 3, 2, 4, 1, 0, 10, 12, 13, 11, 14, 16, 17, 15, 18, 19 }
 
 // Not yet available in `info.json`
 #ifdef RGBLIGHT_ENABLE
-#    define RBGLIGHT_LED_MAP \
-        { 9, 8, 6, 7, 5, 3, 2, 4, 1, 0, 10, 12, 13, 11, 14, 16, 17, 15, 18, 19 }
-#    define RGBLIGHT_EFFECT_BREATHING
-#    define RGBLIGHT_EFFECT_RAINBOW_MOOD
-#    define RGBLIGHT_EFFECT_RAINBOW_SWIRL
-#    define RGBLIGHT_EFFECT_SNAKE
-#    define RGBLIGHT_EFFECT_KNIGHT
-#    define RGBLIGHT_EFFECT_CHRISTMAS
-#    define RGBLIGHT_EFFECT_STATIC_GRADIENT
-#    define RGBLIGHT_EFFECT_RGB_TEST
-#    define RGBLIGHT_EFFECT_ALTERNATING
-#    define RGBLIGHT_EFFECT_TWINKLE
-#    define RGBLIGHT_HUE_STEP 8
-#    define RGBLIGHT_SAT_STEP 8
-#    define RGBLIGHT_VAL_STEP 8
-#    ifndef RGBLIGHT_LIMIT_VAL
-#        define RGBLIGHT_LIMIT_VAL 150
-#    endif
-#    define RGBLIGHT_LAYERS
-#    define RGBLIGHT_MAX_LAYERS 16
-#    define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
+#define RBGLIGHT_LED_MAP                                                       \
+  { 9, 8, 6, 7, 5, 3, 2, 4, 1, 0, 10, 12, 13, 11, 14, 16, 17, 15, 18, 19 }
+#define RGBLIGHT_EFFECT_BREATHING
+#define RGBLIGHT_EFFECT_RAINBOW_MOOD
+#define RGBLIGHT_EFFECT_RAINBOW_SWIRL
+#define RGBLIGHT_EFFECT_SNAKE
+#define RGBLIGHT_EFFECT_KNIGHT
+#define RGBLIGHT_EFFECT_CHRISTMAS
+#define RGBLIGHT_EFFECT_STATIC_GRADIENT
+#define RGBLIGHT_EFFECT_RGB_TEST
+#define RGBLIGHT_EFFECT_ALTERNATING
+#define RGBLIGHT_EFFECT_TWINKLE
+#define RGBLIGHT_HUE_STEP 8
+#define RGBLIGHT_SAT_STEP 8
+#define RGBLIGHT_VAL_STEP 8
+#ifndef RGBLIGHT_LIMIT_VAL
+#define RGBLIGHT_LIMIT_VAL 150
+#endif
+#ifdef RGBLIGHT_REDEFINE_LIMIT_VAL
+#undef RGBLIGHT_LIMIT_VAL
+#define RGBLIGHT_LIMIT_VAL RGBLIGHT_REDEFINE_LIMIT_VAL
+#endif
+#define RGBLIGHT_LAYERS
+#define RGBLIGHT_MAX_LAYERS 16
+#define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
 #endif

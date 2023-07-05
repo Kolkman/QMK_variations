@@ -1,5 +1,5 @@
 /* Copyright 2019-2023 Thomas Baart <thomas@splitkb.com> with modifications by
- * Olaf Kokman <github@dacht.net>
+ * Olaf Kokman <github handle Kolkman
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
  */
 #include "action_code.h"
 #include "color.h"
-#include "keycodes.h" 
+#include "keycodes.h"
 #include "kolkman.h"
 #include "quantum_keycodes.h"
 #include "rgblight.h"
@@ -264,53 +264,53 @@ tap_dance_action_t tap_dance_actions[] = {
                   0x80,0x81,0x82,0x83,0x84,0x85,0x86,0x87,0x88,0x89,0x8a,0x8b,0x8c,0x8d,0x8e,0x8f,0x90,0x91,0x92,0x93,0x94,
                   0xa0,0xa1,0xa2,0xa3,0xa4,0xa5,0xa6,0xa7,0xa8,0xa9,0xaa,0xab,0xac,0xad,0xae,0xaf,0xb0,0xb1,0xb2,0xb3,0xb4,
                   0xc0,0xc1,0xc2,0xc3,0xc4,0xc5,0xc6,0xc7,0xc8,0xc9,0xca,0xcb,0xcc,0xcd,0xce,0xcf,0xd0,0xd1,0xd2,0xd3,0xd4,0};
-      // clang-format on
+    // clang-format on
 
-      oled_write_P(qmk_logo, false);
-      oled_write_P(PSTR("Kyria\nThe XOLX Mod\n"), false);
+    oled_write_P(qmk_logo, false);
+    oled_write_P(PSTR("Kyria\nThe XOLX Mod\n"), false);
 
-      // Host Keyboard Layer Status
-      oled_write_P(PSTR("Layer: "), false);
-      switch (get_highest_layer(layer_state | default_layer_state)) {
-      case _QWERTY:
-        oled_write_P(PSTR("QWERTY\n"), false);
-        break;
-  #ifdef ENABLE_DVORAK
-      case _DVORAK:
-        oled_write_P(PSTR("Dvorak\n"), false);
-        break;
-  #endif
-  #ifdef ENABLE_COLEMAK
-      case _COLEMAK_DH:
-        oled_write_P(PSTR("Colemak-DH\n"), false);
-        break;
-  #endif
-      case _NAV:
-        oled_write_P(PSTR("Nav\n"), false);
-        break;
-      case _SYM:
-        oled_write_P(PSTR("Sym\n"), false);
-        break;
-      case _FUNCTION:
-        oled_write_P(PSTR("Function\n"), false);
-        break;
-      case _ADJUST:
-        oled_write_P(PSTR("Adjust\n"), false);
-        break;
-      default:
-        oled_write_P(PSTR("Undefined\n"), false);
-      }
+    // Host Keyboard Layer Status
+    oled_write_P(PSTR("Layer: "), false);
+    switch (get_highest_layer(layer_state | default_layer_state)) {
+    case _QWERTY:
+      oled_write_P(PSTR("QWERTY\n"), false);
+      break;
+#ifdef ENABLE_DVORAK
+    case _DVORAK:
+      oled_write_P(PSTR("Dvorak\n"), false);
+      break;
+#endif
+#ifdef ENABLE_COLEMAK
+    case _COLEMAK_DH:
+      oled_write_P(PSTR("Colemak-DH\n"), false);
+      break;
+#endif
+    case _NAV:
+      oled_write_P(PSTR("Nav\n"), false);
+      break;
+    case _SYM:
+      oled_write_P(PSTR("Sym\n"), false);
+      break;
+    case _FUNCTION:
+      oled_write_P(PSTR("Function\n"), false);
+      break;
+    case _ADJUST:
+      oled_write_P(PSTR("Adjust\n"), false);
+      break;
+    default:
+      oled_write_P(PSTR("Undefined\n"), false);
+    }
 
-      // Write host Keyboard LED Status to OLEDs
-      led_t led_usb_state = host_keyboard_led_state();
-      oled_write_P(led_usb_state.num_lock ? PSTR("NUMLCK ") : PSTR("       "),
-                  false);
-      oled_write_P(led_usb_state.caps_lock ? PSTR("CAPLCK ") : PSTR("       "),
-                  false);
-      oled_write_P(led_usb_state.scroll_lock ? PSTR("SCRLCK ") : PSTR("       "),
-                  false);
-    } else {
-      // clang-format off
+    // Write host Keyboard LED Status to OLEDs
+    led_t led_usb_state = host_keyboard_led_state();
+    oled_write_P(led_usb_state.num_lock ? PSTR("NUMLCK ") : PSTR("       "),
+                 false);
+    oled_write_P(led_usb_state.caps_lock ? PSTR("CAPLCK ") : PSTR("       "),
+                 false);
+    oled_write_P(led_usb_state.scroll_lock ? PSTR("SCRLCK ") : PSTR("       "),
+                 false);
+  } else {
+    // clang-format off
 
               // 'XolX_Productions', 120x64px
       static const  char XOLX_logo[] PROGMEM = {
@@ -382,227 +382,161 @@ tap_dance_action_t tap_dance_actions[] = {
       0x00, 0x01, 0x00, 0x01, 0x00, 0x02, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       };
 
-      // clang-format on
-      oled_write_raw_P(XOLX_logo, sizeof(XOLX_logo));
-    }
-    return false;
+    // clang-format on
+    oled_write_raw_P(XOLX_logo, sizeof(XOLX_logo));
   }
-  #endif
+  return false;
+}
+#endif
 
-  #ifdef ENCODER_ENABLE
-  #if defined(ENCODER_MAP_ENABLE)
-  const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-      [_QWERTY] =
-          {
-              ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN),
-              ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN),
-          },
-  #ifdef ENABLE_DVORAK
-      [_DVORAK] = {ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN),
-                  ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-  #endif
-  #ifdef ENABLE_COLEMAK
-      [_COLEMAK] =
-          {
-              ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN),
-              ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN),
-          },
-  #endif
-
-      [_ADJUST] =
-          {
-              ENCODER_CCW_CW(RGB_HUD, RGB_HUI),
-              ENCODER_CCW_CW(RGB_HUD, RGB_HUI),
-          },
-      [_NAV] = {
-          ENCODER_CCW_CW(KC_VOLD, KC_VOLU),
-          ENCODER_CCW_CW(KC_VOLD, KC_VOLU),
-
-      }};
-  #else
-// inspired on  https://golem.hu/guide/rotary-encoder-programming
-//DOES MOT GIVE THE EXPECTED RESULTS YET.
-static bool tabbing = false;
-static uint16_t tabtimer;
+#ifdef ENCODER_ENABLE
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
-    /* Right encoder */
-    if (index == 0) {
-      if (IS_LAYER_ON(_QWERTY)
+  uint8_t mods_state = get_mods();
+  if (index == 0) {
+    encoder_action_volume(clockwise);
+  } else if (index == 1) { /*right encoder*/
+    if (IS_LAYER_ON(_QWERTY)
 #ifdef ENABLE_DVORAK
-          || IS_LAYER_ON(_DVORAK)
+        || IS_LAYER_ON(_DVORAK)
 #endif
 #ifdef ENABLE_COLEMACK
-          || IS_LAYER_ON(_COLEMAK)
+        || IS_LAYER_ON(_COLEMAK)
 #endif
-      ) { /* mouse uo */
+    ) { /* mouse uo */
+      if (mods_state & MOD_BIT(KC_LSFT)) {
+        unregister_mods(MOD_BIT(KC_LSFT));
+        encoder_action_navpage(clockwise);
+        register_mods(MOD_BIT(KC_LSFT));
+      } else {
         if (clockwise) {
           tap_code(KC_MS_WH_UP);
         } else {
           tap_code(KC_MS_WH_DOWN);
         }
-      } else if (IS_LAYER_ON(_ADJUST)) { /* undo/redo */
+      }
+    } else if (IS_LAYER_ON(_ADJUST)) { /* all things color */
+
+      if (mods_state & MOD_BIT(KC_LSFT)) {
+        unregister_mods(MOD_BIT(KC_LSFT));
+        encoder_action_rgb_mode(clockwise);
+        register_mods(MOD_BIT(KC_LSFT));
+
+      } else if (mods_state & MOD_BIT(KC_LEFT_GUI)) {
+        encoder_action_rgb_saturation(clockwise);
+      } else {
         if (clockwise) {
-          tap_code16(RGB_HUI);
-        } else {           
-          tap_code16(RGB_HUD);
-        }
-      } else if (IS_LAYER_ON(_NAV)) { /* app switch */
-        if (!clockwise) {
-          tabtimer = timer_read();
-          if (!tabbing) {
-            register_code(KC_LALT);
-            tabbing = true;
-          }
-          tap_code(KC_TAB);
+          rgblight_decrease_hue();
         } else {
-          tabtimer = timer_read();
-          if (!tabbing) {
-            register_code(KC_LALT);
-            tabbing = true;
-          }
-          register_code(KC_LSFT);
-          tap_code(KC_TAB);
-          unregister_code(KC_LSFT);
-        }
-      } else { /* BASE LAYER - character navigation */
-        if (clockwise) {
-          tap_code(KC_VOLU);
-        } else {
-          tap_code(KC_VOLD);
+          rgblight_increase_hue();
         }
       }
-      
-      /* Left encoder */
-    } else if (index == 1) {
-/// empty for now
+    } else if (IS_LAYER_ON(_NAV)) {
+      if (mods_state & MOD_BIT(KC_LSFT)) {
+        encoder_action_mediatrack(clockwise);
 
-    }
-    return true;
-}
-
-void matrix_scan_user(void) {
-  if(tabbing) {
-    if (timer_elapsed(tabtimer) > TABBING_TIMER) {
-      unregister_code(KC_LALT);
-      tabbing = false;
+      } else {
+        encoder_action_volume(clockwise);
+      }
     }
   }
+  return false;
 }
 
 #endif
-  #endif
 
-  #if defined(RGBLIGHT_LAYERS)
-  const rgblight_segment_t PROGMEM my_qwerty_layer[] =
-      RGBLIGHT_LAYER_SEGMENTS({0, 20, HSV_RED});
-  const rgblight_segment_t PROGMEM my_dvorak_layer[] =
-      RGBLIGHT_LAYER_SEGMENTS({0, 20, HSV_RED});
-  const rgblight_segment_t PROGMEM my_colemak_layer[] =
-      RGBLIGHT_LAYER_SEGMENTS({0, 20, HSV_BLUE});
+#if defined(RGBLIGHT_LAYERS)
+const rgblight_segment_t PROGMEM my_qwerty_layer[] =
+    RGBLIGHT_LAYER_SEGMENTS({0, 20, HSV_RED});
+const rgblight_segment_t PROGMEM my_dvorak_layer[] =
+    RGBLIGHT_LAYER_SEGMENTS({0, 20, HSV_RED});
+const rgblight_segment_t PROGMEM my_colemak_layer[] =
+    RGBLIGHT_LAYER_SEGMENTS({0, 20, HSV_BLUE});
 
-  const rgblight_segment_t PROGMEM my_nav_layer[] =
-      RGBLIGHT_LAYER_SEGMENTS({12, 30, HSV_GOLDENROD}, {43, 30, HSV_GOLDENROD});
+const rgblight_segment_t PROGMEM my_nav_layer[] =
+    RGBLIGHT_LAYER_SEGMENTS({12, 30, HSV_GOLDENROD}, {43, 30, HSV_GOLDENROD});
 
-  const rgblight_segment_t PROGMEM my_symbols_layer[] =
-      RGBLIGHT_LAYER_SEGMENTS({12, 30, HSV_GREEN}, {43, 30, HSV_GREEN});
+const rgblight_segment_t PROGMEM my_symbols_layer[] =
+    RGBLIGHT_LAYER_SEGMENTS({12, 30, HSV_GREEN}, {43, 30, HSV_GREEN});
 
-  const rgblight_segment_t PROGMEM my_fn_layer[] =
+const rgblight_segment_t PROGMEM my_fn_layer[] =
     RGBLIGHT_LAYER_SEGMENTS({12, 30, HSV_PINK}, {43, 30, HSV_PINK});
-  const rgblight_segment_t PROGMEM my_adjust_layer[] =
-      RGBLIGHT_LAYER_SEGMENTS({6, 6, HSV_MAGENTA}, {37, 6, HSV_MAGENTA});
+const rgblight_segment_t PROGMEM my_adjust_layer[] =
+    RGBLIGHT_LAYER_SEGMENTS({6, 6, HSV_MAGENTA}, {37, 6, HSV_MAGENTA});
 
-  const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-      {0, 3, HSV_RED}, {7, 1, HSV_RED}, {10, 3, HSV_RED}, {17, 1, HSV_RED});
+const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 3, HSV_RED}, {7, 1, HSV_RED}, {10, 3, HSV_RED}, {17, 1, HSV_RED});
 
-  const rgblight_segment_t PROGMEM my_shift_layer[] =
-      RGBLIGHT_LAYER_SEGMENTS({12, 7, HSV_BLUE}, {43, 7, HSV_BLUE});
+const rgblight_segment_t PROGMEM my_shift_layer[] =
+    RGBLIGHT_LAYER_SEGMENTS({12, 7, HSV_BLUE}, {43, 7, HSV_BLUE});
 
-  const rgblight_segment_t PROGMEM my_ctrl_layer[] =
-      RGBLIGHT_LAYER_SEGMENTS({17, 7, HSV_ORANGE}, {48, 7, HSV_ORANGE});
+const rgblight_segment_t PROGMEM my_ctrl_layer[] =
+    RGBLIGHT_LAYER_SEGMENTS({17, 7, HSV_ORANGE}, {48, 7, HSV_ORANGE});
 
-  const rgblight_segment_t PROGMEM my_alt_layer[] =
-      RGBLIGHT_LAYER_SEGMENTS({20, 10, HSV_TEAL}, {51, 10, HSV_TEAL});
+const rgblight_segment_t PROGMEM my_alt_layer[] =
+    RGBLIGHT_LAYER_SEGMENTS({20, 10, HSV_TEAL}, {51, 10, HSV_TEAL});
 
-  const rgblight_segment_t PROGMEM my_gui_layer[] =
-      RGBLIGHT_LAYER_SEGMENTS({25, 8, HSV_YELLOW}, {56, 8, HSV_YELLOW});
+const rgblight_segment_t PROGMEM my_gui_layer[] =
+    RGBLIGHT_LAYER_SEGMENTS({25, 8, HSV_YELLOW}, {56, 8, HSV_YELLOW});
 
-  const rgblight_segment_t PROGMEM my_capsword_layer[] =
-      RGBLIGHT_LAYER_SEGMENTS({15, 18, HSV_RED}, {46, 18, HSV_RED});
+const rgblight_segment_t PROGMEM my_capsword_layer[] =
+    RGBLIGHT_LAYER_SEGMENTS({15, 18, HSV_RED}, {46, 18, HSV_RED});
 
-  const rgblight_segment_t *const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-      my_qwerty_layer,
-  #ifdef ENABLE_DVORAK
-      my_dvorak_layer,
-  #endif
-  #ifdef ENABLE_COLEMAK
-      my_colemak_layer,
-  #endif
-      my_nav_layer, my_symbols_layer, my_fn_layer, my_adjust_layer,
-      my_capslock_layer, my_shift_layer, my_ctrl_layer, my_alt_layer,
-      my_gui_layer, my_capsword_layer);
+const rgblight_segment_t *const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    my_qwerty_layer,
+#ifdef ENABLE_DVORAK
+    my_dvorak_layer,
+#endif
+#ifdef ENABLE_COLEMAK
+    my_colemak_layer,
+#endif
+    my_nav_layer, my_symbols_layer, my_fn_layer, my_adjust_layer,
+    my_capslock_layer, my_shift_layer, my_ctrl_layer, my_alt_layer,
+    my_gui_layer, my_capsword_layer);
 
-  #define LAYER_OFFSET 0
-  #if defined(ENABLE_DVORAK) || defined(ENABLE_COLEMAK)
-  #if defined(ENABLE_DVORAK) && defined(ENABLE_COLEMAK)
-  #define LAYER_OFFSET 2
-  #else
-  #define LAYER_OFFSET 1
-  #endif
-  #else
-  #define LAYER_OFFSET 0
-  #endif
+void housekeeping_task_keymap(void) {}
 
-  void housekeeping_task_keymap(void) {
+void caps_word_set_user(bool active) {
+  // will enable/disable rgb layer 7 based on whether caps word is active
+  rgblight_set_layer_state(10 + LAYER_OFFSET, active);
+}
+#endif
 
-    uint8_t mods = mod_config(get_mods());
-    rgblight_set_layer_state(6 + LAYER_OFFSET, mods & MOD_MASK_SHIFT);
-    rgblight_set_layer_state(7 + LAYER_OFFSET, mods & MOD_MASK_CTRL);
-    rgblight_set_layer_state(8 + LAYER_OFFSET, mods & MOD_MASK_ALT);
-    rgblight_set_layer_state(9 + LAYER_OFFSET, mods & MOD_MASK_GUI);
+void keyboard_post_init_user(void) {
+  rgblight_sethsv_noeeprom(HSV_BLUE);
+  keyboard_post_init_rgb();
+#ifdef RGBLIGHT_LAYERS
+  rgblight_layers = my_rgb_layers;
+#else
+  rgblight_sethsv_noeeprom(HSV_BLUE);
+#endif
+  /*debug_enable=true;*/
+  /*debug_matrix=true;*/
+}
+
+// todo
+// https://github.com/qmk/qmk_firmware/blob/debdc6379c7a72815df1f53e3406479381d243af/keyboards/crkbd/keymaps/soundmonster/keymap.c
+// RGBRST
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+#ifdef RGBLIGHT_LAYERS
+  int j = 1;
+#ifdef ENABLE_DVORAK
+  j++;
+#endif
+#ifdef ENABLE_COLEMAK
+  j++;
+#endif
+  for (int i = j; i < __LAST; i++) {
+    rgblight_set_layer_state(i, layer_state_cmp(state, i));
   }
+#endif
+  return state;
+}
 
-  void caps_word_set_user(bool active) {
-    // will enable/disable rgb layer 7 based on whether caps word is active
-    rgblight_set_layer_state(10 + LAYER_OFFSET, active);
-  }
-  #endif
-
-  void keyboard_post_init_user(void) {
-    rgblight_sethsv_noeeprom(HSV_BLUE);
-    keyboard_post_init_rgb();
-  #ifdef RGBLIGHT_LAYERS
-    rgblight_layers = my_rgb_layers;
-  #else
-        rgblight_sethsv_noeeprom(HSV_BLUE);
-  #endif
-    /*debug_enable=true;*/
-    /*debug_matrix=true;*/
-  }
-
-  // todo
-  // https://github.com/qmk/qmk_firmware/blob/debdc6379c7a72815df1f53e3406479381d243af/keyboards/crkbd/keymaps/soundmonster/keymap.c
-  // RGBRST
-
-  layer_state_t layer_state_set_user(layer_state_t state) {
-  #ifdef RGBLIGHT_LAYERS
-    int j = 1;
-  #ifdef ENABLE_DVORAK
-    j++;
-  #endif
-  #ifdef ENABLE_COLEMAK
-    j++;
-  #endif
-    for (int i = j; i < __LAST; i++) {
-      rgblight_set_layer_state(i, layer_state_cmp(state, i));
-    }
-  #endif
-    return state;
-  }
-
-  #ifdef RGBLIGHT_LAYERS
-  bool led_update_user(led_t led_state) {
-   rgblight_set_layer_state(7, led_state.caps_lock);
-    return true;
-  }
-  #endif
+#ifdef RGBLIGHT_LAYERS
+bool led_update_user(led_t led_state) {
+  rgblight_set_layer_state(7, led_state.caps_lock);
+  return true;
+}
+#endif
