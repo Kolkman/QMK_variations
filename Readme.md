@@ -9,10 +9,10 @@ The development environments relies on the directories under this develoment env
 For instance:
 
 ```
-cd ~/qmk_firmware/keyboards/splitkb/kyria/keymap
+cd ~/firmware/keyboards/splitkb/kyria/keymap
 ln -s ./../../../../../QMK-variations/keyboards/splitkb/kyria/keymaps/kolkman ./
 
-cd ~/qmkfirmwqre/users
+cd ~/firmware/users
 ln -s ../../QMK-variations/users/kolkman ./
 ```
  Also, if you work with VStudio, you may want to link your compile_commands.json file from the qmk_firmware directory to your QMK-variations directory.
@@ -23,6 +23,7 @@ ln -s ../../QMK-variations/users/kolkman ./
  ```
 
  ### Some useful resources.
+ 
  - [keymapdb](https.keymapdb.com), in particular the [kyria keymap](https://keymapdb.com/keymaps/default-kyria/).
  - https://precondition.github.io/
  - https://github.com/andrewjrae/kyria-keymap contains a few fetures that I am considdering
